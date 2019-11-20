@@ -1,8 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 let app = express();
+let configure = require("./server/configure");
 
 const PORT = process.env.PORT || 2027;
+
+app = configure(app);
 
 mongoose.connect("mongodb://localhost/authentication", {
   useNewUrlParser: true,
