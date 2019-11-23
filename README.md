@@ -1,2 +1,2 @@
 # simpleSignUp
-A simple signup page with email verification.
+A simple signup page with email verification
