@@ -6,16 +6,16 @@ const exphbs = require("express-handlebars");
 module.exports = app => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
-  app.use("/public/", express.static(path.resolve(__dirname, "../public/")));
+  app.use("/public", express.static(path.join(__dirname, "../public")));
 
   app.engine(
-    "hbs",
+    "handlebars",
     exphbs.create({
       defaultLayout: "main",
       layoutsDir: `${app.get("views")}/layouts`,
       partialsDir: `${app.get("views")}/partials`,
     }).engine,
   );
-  app.set("view engine", "hbs");
+  app.set("view engine", "handlebars");
   return app;
 };
